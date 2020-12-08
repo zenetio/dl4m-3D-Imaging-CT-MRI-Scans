@@ -1,0 +1,282 @@
+{
+  "volume_stats": [
+    {
+      "filename": "hippocampus_340.nii.gz",
+      "dice": 0.8947285601888277,
+      "jaccard": 0.8095102505694761
+    },
+    {
+      "filename": "hippocampus_163.nii.gz",
+      "dice": 0.9244469180464728,
+      "jaccard": 0.8595084087968952
+    },
+    {
+      "filename": "hippocampus_104.nii.gz",
+      "dice": 0.9160671462829736,
+      "jaccard": 0.8451327433628318
+    },
+    {
+      "filename": "hippocampus_008.nii.gz",
+      "dice": 0.918790752815649,
+      "jaccard": 0.8497807017543859
+    },
+    {
+      "filename": "hippocampus_356.nii.gz",
+      "dice": 0.8907539516016226,
+      "jaccard": 0.8030264817150063
+    },
+    {
+      "filename": "hippocampus_144.nii.gz",
+      "dice": 0.9148685759121225,
+      "jaccard": 0.8430947216196674
+    },
+    {
+      "filename": "hippocampus_097.nii.gz",
+      "dice": 0.922707100591716,
+      "jaccard": 0.8565053209749399
+    },
+    {
+      "filename": "hippocampus_051.nii.gz",
+      "dice": 0.9169709477694872,
+      "jaccard": 0.8466725300498388
+    },
+    {
+      "filename": "hippocampus_177.nii.gz",
+      "dice": 0.9318270354499416,
+      "jaccard": 0.8723559445660102
+    },
+    {
+      "filename": "hippocampus_242.nii.gz",
+      "dice": 0.9315099204125098,
+      "jaccard": 0.8718002517834662
+    },
+    {
+      "filename": "hippocampus_203.nii.gz",
+      "dice": 0.9090295358649789,
+      "jaccard": 0.833230198019802
+    },
+    {
+      "filename": "hippocampus_106.nii.gz",
+      "dice": 0.902127659574468,
+      "jaccard": 0.8217054263565892
+    },
+    {
+      "filename": "hippocampus_235.nii.gz",
+      "dice": 0.8315217391304348,
+      "jaccard": 0.7116279069767442
+    },
+    {
+      "filename": "hippocampus_231.nii.gz",
+      "dice": 0.8919263714233643,
+      "jaccard": 0.8049342105263158
+    },
+    {
+      "filename": "hippocampus_160.nii.gz",
+      "dice": 0.8792222771461525,
+      "jaccard": 0.7844751543663628
+    },
+    {
+      "filename": "hippocampus_037.nii.gz",
+      "dice": 0.8572300183038438,
+      "jaccard": 0.7501334757074213
+    },
+    {
+      "filename": "hippocampus_050.nii.gz",
+      "dice": 0.9224521875818705,
+      "jaccard": 0.8560661317772915
+    },
+    {
+      "filename": "hippocampus_101.nii.gz",
+      "dice": 0.9113607990012484,
+      "jaccard": 0.8371559633027523
+    },
+    {
+      "filename": "hippocampus_083.nii.gz",
+      "dice": 0.9018901890189019,
+      "jaccard": 0.8213114754098361
+    },
+    {
+      "filename": "hippocampus_135.nii.gz",
+      "dice": 0.9140956955477554,
+      "jaccard": 0.8417829193603267
+    },
+    {
+      "filename": "hippocampus_245.nii.gz",
+      "dice": 0.8095306035097731,
+      "jaccard": 0.6800095877277086
+    },
+    {
+      "filename": "hippocampus_158.nii.gz",
+      "dice": 0.8858854674655149,
+      "jaccard": 0.7951475737868935
+    },
+    {
+      "filename": "hippocampus_146.nii.gz",
+      "dice": 0.9219444444444445,
+      "jaccard": 0.8551919608348364
+    },
+    {
+      "filename": "hippocampus_301.nii.gz",
+      "dice": 0.9004043732215067,
+      "jaccard": 0.8188504494688096
+    },
+    {
+      "filename": "hippocampus_319.nii.gz",
+      "dice": 0.8767228177641654,
+      "jaccard": 0.7805044308111793
+    },
+    {
+      "filename": "hippocampus_290.nii.gz",
+      "dice": 0.8764723648444579,
+      "jaccard": 0.7801075268817205
+    },
+    {
+      "filename": "hippocampus_075.nii.gz",
+      "dice": 0.9124797406807131,
+      "jaccard": 0.8390461997019374
+    },
+    {
+      "filename": "hippocampus_299.nii.gz",
+      "dice": 0.8657379964433907,
+      "jaccard": 0.7632610399790959
+    },
+    {
+      "filename": "hippocampus_292.nii.gz",
+      "dice": 0.8898083023031306,
+      "jaccard": 0.8014906832298136
+    },
+    {
+      "filename": "hippocampus_123.nii.gz",
+      "dice": 0.9061882317165881,
+      "jaccard": 0.8284681679177092
+    },
+    {
+      "filename": "hippocampus_296.nii.gz",
+      "dice": 0.8762407337605227,
+      "jaccard": 0.7797406082289803
+    },
+    {
+      "filename": "hippocampus_265.nii.gz",
+      "dice": 0.8996561425445452,
+      "jaccard": 0.8176136363636364
+    },
+    {
+      "filename": "hippocampus_326.nii.gz",
+      "dice": 0.8769986151328214,
+      "jaccard": 0.7809417040358745
+    },
+    {
+      "filename": "hippocampus_026.nii.gz",
+      "dice": 0.9124157844080847,
+      "jaccard": 0.8389380530973451
+    },
+    {
+      "filename": "hippocampus_067.nii.gz",
+      "dice": 0.926154965441979,
+      "jaccard": 0.8624661246612466
+    },
+    {
+      "filename": "hippocampus_302.nii.gz",
+      "dice": 0.9214084884187977,
+      "jaccard": 0.8542701092353525
+    },
+    {
+      "filename": "hippocampus_057.nii.gz",
+      "dice": 0.8979253112033195,
+      "jaccard": 0.8147590361445783
+    },
+    {
+      "filename": "hippocampus_176.nii.gz",
+      "dice": 0.906351263771873,
+      "jaccard": 0.8287407407407408
+    },
+    {
+      "filename": "hippocampus_133.nii.gz",
+      "dice": 0.9169905607995558,
+      "jaccard": 0.8467059728274802
+    },
+    {
+      "filename": "hippocampus_328.nii.gz",
+      "dice": 0.9193264639356622,
+      "jaccard": 0.8506976744186047
+    },
+    {
+      "filename": "hippocampus_007.nii.gz",
+      "dice": 0.9238754325259516,
+      "jaccard": 0.8585209003215434
+    },
+    {
+      "filename": "hippocampus_114.nii.gz",
+      "dice": 0.8503410831129055,
+      "jaccard": 0.7396464034875272
+    },
+    {
+      "filename": "hippocampus_248.nii.gz",
+      "dice": 0.8923570595099183,
+      "jaccard": 0.805636028443508
+    },
+    {
+      "filename": "hippocampus_006.nii.gz",
+      "dice": 0.9137641124189286,
+      "jaccard": 0.8412206988058382
+    },
+    {
+      "filename": "hippocampus_368.nii.gz",
+      "dice": 0.890927624872579,
+      "jaccard": 0.8033088235294118
+    },
+    {
+      "filename": "hippocampus_383.nii.gz",
+      "dice": 0.9110787172011662,
+      "jaccard": 0.8366800535475234
+    },
+    {
+      "filename": "hippocampus_252.nii.gz",
+      "dice": 0.9128359023325604,
+      "jaccard": 0.8396486825595985
+    },
+    {
+      "filename": "hippocampus_149.nii.gz",
+      "dice": 0.9322535430618284,
+      "jaccard": 0.8731038506417736
+    },
+    {
+      "filename": "hippocampus_358.nii.gz",
+      "dice": 0.8838004101161996,
+      "jaccard": 0.7917942437232088
+    },
+    {
+      "filename": "hippocampus_096.nii.gz",
+      "dice": 0.9253069072622393,
+      "jaccard": 0.8609964216900633
+    },
+    {
+      "filename": "hippocampus_234.nii.gz",
+      "dice": 0.8877236273904997,
+      "jaccard": 0.7981142540210759
+    },
+    {
+      "filename": "hippocampus_011.nii.gz",
+      "dice": 0.9223783170143324,
+      "jaccard": 0.8559388991308928
+    },
+    {
+      "filename": "hippocampus_019.nii.gz",
+      "dice": 0.8784445376975801,
+      "jaccard": 0.7832377151409329
+    }
+  ],
+  "overall": {
+    "mean_dice": 0.900136930716828,
+    "mean_jaccard": 0.8193322353232528
+  },
+  "config": {
+    "name": "Basic_unet",
+    "root_dir": "../../data/TrainingSet",
+    "n_epochs": 12,
+    "learning_rate": 0.0002,
+    "batch_size": 8,
+    "patch_size": 64,
+    "test_results_dir": "../out"
+  }
+}
