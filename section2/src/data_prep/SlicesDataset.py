@@ -59,8 +59,7 @@ class SlicesDataset(Dataset):
         # as a whole, which will improve model accuracy.
         
         img_hot_lbl = np.zeros(label.shape)
-        true_lbl = label > 0
-        img_hot_lbl = true_lbl.astype(int)
+        img_hot_lbl = label
         
         img = torch.from_numpy(image).unsqueeze(0)
         lbl = torch.from_numpy(img_hot_lbl).unsqueeze(0)

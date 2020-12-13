@@ -27,8 +27,8 @@ def Dice3d(a, b):
     # you should already have it.
     af = a.flatten()
     bf = b.flatten()
-    intersection = np.sum(af * bf)
-    volumes = np.sum(af) + np.sum(bf)
+    intersection = np.sum((af>0) * (bf>0))
+    volumes = np.sum(af>0) + np.sum(bf>0)
     if volumes == 0:
         return -1
     return 2.*float(intersection) / float(volumes)
@@ -59,6 +59,6 @@ def Jaccard3d(a, b):
     bf = b.flatten()
     af=a
     bf=b
-    intersection = np.sum(af * bf)
-    union = (np.sum(af) + np.sum(bf)) - intersection
+    intersection = np.sum((af>0) * (bf>0))
+    union = (np.sum(af>0) + np.sum(bf>0)) - intersection
     return intersection / union

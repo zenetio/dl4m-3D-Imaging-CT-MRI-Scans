@@ -69,8 +69,8 @@ if __name__ == "__main__":
     exp.print_summary()
     
     # run training
-    exp.run()
-    #exp.load_model_parameters(path='..\\out\\model.pth')
+    #exp.run()
+    exp.load_model_parameters(path='..\\out\\model.pth')
 
     # prep and run testing
 

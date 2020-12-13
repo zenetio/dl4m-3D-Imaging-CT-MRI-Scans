@@ -60,31 +60,15 @@ def get_predicted_volumes(pred):
     Returns:
         A dictionary with respective volumes
     """
-    volume_ant = volume_post = total_volume = []
+    volume_ant, volume_post, volume_total = [], [], []
 
     # Here we compute segmentation predictions for each hippocampal slice of volume
     # and turn them into NumPy array of the same shape as the original volume
-    for i in range(pred.shape[2]):
-        vol = pred[:,:,i]
-        lbl = np.zeros(vol.shape)
-        if np.sum(vol) >0:
-            lbl = vol == 1
-            lbl = lbl.astype(np.int)
-            if np.sum(lbl) > 0:
-                #print(f"1: {i}")
-                volume_ant.append(lbl)
-                np.dot(lbl, 0)
-            else: volume_ant.append(lbl)
-            lbl = vol == 2
-            lbl = lbl.astype(np.int)
-            if np.sum(lbl) > 0:
-                #print(f"2: {i}")
-                volume_post.append(lbl)
-                np.dot(lbl, 0)
-            else: volume_post.append(lbl)
-        total_volume.append(vol)
-
-    return {"anterior": volume_ant, "posterior": volume_post, "total": total_volume}
+    volume_ant  = (pred == 1).astype(np.int)
+    volume_post = (pred == 2).astype(np.int)
+    volume_total = volume_ant + volume_post
+    
+    return {"anterior": volume_ant, "posterior": volume_post, "total": volume_total}
 
 def conv_arr2pil(slice):
     if np.max(slice) > 0:
@@ -114,6 +98,11 @@ def create_report(inference, header, orig_vol, pred_lbl):
     # Essentially, our report is just a standard RGB image, with some metadata, packed into 
     # DICOM format. 
 
+    # get volumes value
+    anterior = inference['anterior'].sum()
+    posterior= inference['posterior'].sum()
+    total = anterior + posterior
+
     pimg = Image.new("RGB", (1000, 1000))
     draw = ImageDraw.Draw(pimg)
 
@@ -127,15 +116,19 @@ def create_report(inference, header, orig_vol, pred_lbl):
     # genius to make if shine. After all, this is the only part of all our machine learning 
     # efforts that will be visible to the world. The usefulness of your computations will largely
     # depend on how you present them.
-
+    volume = np.sum(pred_label)
     draw.text((10, 0), "HippoVolume.AI", (255, 255, 255), font=header_font)
-    draw.multiline_text((10, 90),
+    draw.multiline_text((15, 90),
                          f"Patient ID: {header.PatientID}, Modality: {header.Modality}, SeriesDescription: {header.SeriesDescription}\n",
                          (255, 255, 255), font=main_font)
-
-    x = 10
-    y = 140
     
+    x = 15
+    y = 120
+    
+    draw.multiline_text((x, y), f"Vol Anterior: {anterior}", (255, 255, 255), font=main_font)
+    draw.multiline_text((x, y+20), f"Vol Posterior: {posterior}", (255, 255, 255), font=main_font)
+    draw.multiline_text((x, y+40), f"Vol Total: {total}", (255, 255, 255), font=main_font)
+    y = 200
     draw.multiline_text((x, y),    f"Anterior({slice_nums[0]})                        Posterior({slice_nums[0]})                        Overlay({slice_nums[0]})", (255, 255, 255), font=main_font)
     draw.multiline_text((x, y+200), f"Anterior({slice_nums[1]})                        Posterior({slice_nums[1]})                        Overlay({slice_nums[1]})", (255, 255, 255), font=main_font)
     draw.multiline_text((x, y+2*200), f"Anterior({slice_nums[2]})                        Posterior({slice_nums[2]})                        Overlay({slice_nums[2]})", (255, 255, 255), font=main_font)
@@ -151,16 +144,19 @@ def create_report(inference, header, orig_vol, pred_lbl):
     # reshape image to allow overlay
     
     new_vol = med_reshape(orig_vol, new_shape=(pred_lbl.shape[0], pred_lbl.shape[1], orig_vol.shape[2]))
-    slice1 = slice2 = slice3 = np.zeros((new_vol.shape[0], new_vol.shape[1]))
-
+    slice1 = np.zeros((new_vol.shape[0], new_vol.shape[1]))
+    slice2 = np.zeros((new_vol.shape[0], new_vol.shape[1]))
+    slice3 = np.zeros((new_vol.shape[0], new_vol.shape[1]))
+    
     for i in slice_nums:
-        slice1 = inference["anterior"][i]
+        slice1 = inference['anterior'][i]
         pil_i1 = conv_arr2pil(slice1)
         pimg.paste(pil_i1, box=(x, y+20))
-        slice2 = inference["posterior"][i]
+        slice2 = inference['posterior'][i]
         pil_i2 = conv_arr2pil(slice2)
         pimg.paste(pil_i2, box=(x+200, y+20))
-        slice3 = new_vol[:,:,i] + slice1 + slice2
+        #slice3 = new_vol[:,:,i] + slice1 + slice2
+        slice3 = slice1 + slice2
         pil_i3 = conv_arr2pil(slice3)
         pimg.paste(pil_i3, box=(x+400, y+20))
         y += 200
@@ -353,7 +349,8 @@ if __name__ == "__main__":
     # report) - we want to give it time to save before cleaning it up
     time.sleep(2)
     #shutil.rmtree(study_dir, onerror=lambda f, p, e: print(f"Error deleting: {e[1]}"))
-
+    ant = pred_volumes['anterior'].sum()
+    post = pred_volumes['posterior'].sum()
     print(f"Inference successful on {header['SOPInstanceUID'].value}, out: {pred_label.shape}",
-          f"volume ant: {pred_volumes['anterior']}, ",
-          f"volume post: {pred_volumes['posterior']}, total volume: {pred_volumes['total']}")
+          f"volume ant: {ant}, ",
+          f"volume post: {post}, total volume: {ant+post}")

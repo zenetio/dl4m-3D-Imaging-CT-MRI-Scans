@@ -18,6 +18,7 @@ from utils.utils import log_to_tensorboard
 from utils.volume_stats import Dice3d, Jaccard3d
 from networks.RecursiveUNet import UNet
 from inference.UNetInferenceAgent import UNetInferenceAgent
+#from torchvision import summary
 
 class UNetExperiment:
     """
@@ -84,7 +85,7 @@ class UNetExperiment:
         """
         This method runs the model print summary 
         """
-        self.model.summary()
+        #self.model.summary()
         
     def train(self):
         """
@@ -116,9 +117,12 @@ class UNetExperiment:
             prediction_softmax = F.softmax(prediction, dim=1)
             # compute loss function
             loss = self.loss_function(prediction, target[:, 0, :, :])
-
             # What does each dimension of variable prediction represent?
             # ANSWER: the output probatility if is the target or not
+            # we have prediction[: , : , : , :] or dims [0, 1, 2, 3]
+            # 0: is the batch size
+            # 1: is the number of classes
+            # 2 and 3: is the image size or shape
 
             loss.backward()
             self.optimizer.step()
@@ -243,10 +247,8 @@ class UNetExperiment:
             # the average Jaccard on your test set should be around 0.80
             # one-hot the label in the same way we did in training process
 
-            img_hot_lbl = np.zeros(x["seg"].shape)
-            true_lbl = x["seg"] > 0
-            gt = true_lbl.astype(np.int)
-        
+            gt = x['seg'].astype(np.int)
+
             dc = Dice3d(pred_label, gt)
             jc = Jaccard3d(pred_label, gt)
             dc_list.append(dc)
